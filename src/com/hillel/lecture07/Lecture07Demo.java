@@ -1,17 +1,12 @@
 package com.hillel.lecture07;
 
+import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Lecture07Demo {
 
     public static void main(String[] args) {
-        int[] array = generate(8);
-        System.out.println("Generated array");
-        print(array);
-
-        bubbleSortReverse(array);
-        System.out.println("Sorted array");
-        print(array);
+        task1Simplify();
 
     }
 
@@ -20,7 +15,7 @@ public class Lecture07Demo {
     private static int[] generate(int size) {
         int[] array = new int[size];
         for (int i = 0; i < array.length; i++) {
-            array[i] = ThreadLocalRandom.current().nextInt(100);
+            array[i] = ThreadLocalRandom.current().nextInt(10);
         }
 
         return array;
@@ -34,17 +29,13 @@ public class Lecture07Demo {
     }
 
     public static void bubbleSort(int[] array) {
-        System.out.println("Bubble sort starting...");
         for (int j = 0; j < array.length - 1; j++) {
             for (int i = 0; i < array.length - 1 - j; i++) {
                 if (array[i] > array[i + 1]) {
                     swap(array, i, i + 1);
                 }
             }
-            print(array);
         }
-        System.out.println("Bubble sort finished");
-        print(array);
     }
 
 
@@ -73,12 +64,34 @@ public class Lecture07Demo {
      * відсортувати масив та вивести на екран. Поміняти місцями перший та останній елемент, вивести масив на екран ще раз.
      */
     public static void task1() {
+        int[] array = generate(15);
+        System.out.println("Generated array:");
+        print(array);
 
+        System.out.println("Sorted array:");
+        bubbleSort(array);
+        print(array);
+
+        System.out.println("Changed the first and last elements:");
+        swap(array, 0, array.length - 1);
+        print(array);
     }
 
 
     public static void task1Simplify() {
+        int[] array = generate(20);
+        System.out.println("Generated array:");
+        System.out.println(Arrays.toString(array));
 
+        System.out.println("Sorted array:");
+        Arrays.sort(array);
+        System.out.println(Arrays.toString(array));
+        int index = Arrays.binarySearch(array, 1);
+        System.out.println("Found index: " + index);
+//
+        System.out.println("Changed the first and last elements:");
+        swap(array, 0, array.length - 1);
+        print(array);
     }
 
     /**
