@@ -6,7 +6,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Lecture07Demo {
 
     public static void main(String[] args) {
-        task1Simplify();
+        task2();
 
     }
 
@@ -15,7 +15,7 @@ public class Lecture07Demo {
     private static int[] generate(int size) {
         int[] array = new int[size];
         for (int i = 0; i < array.length; i++) {
-            array[i] = ThreadLocalRandom.current().nextInt(10);
+            array[i] = ThreadLocalRandom.current().nextInt(100);
         }
 
         return array;
@@ -101,7 +101,24 @@ public class Lecture07Demo {
      * Відсортувати другу частину масивав за спаданням і також вивести на екран
      */
     public static void task2() {
+        int size = 10;
+        int[] array = generate(2 * size);
+        System.out.println(Arrays.toString(array));
 
+        Arrays.sort(array, 0, size);
+        System.out.println(Arrays.toString(array));
 
+        bubbleSortReverse(array, size, array.length);
+        System.out.println(Arrays.toString(array));
+    }
+
+    public static void bubbleSortReverse(int[] array, int fromIndex, int toIndex) {
+        for (int j = 0; j < toIndex - fromIndex - 2; j++) {
+            for (int i = fromIndex; i < toIndex - 1 - j; i++) {
+                if (array[i] < array[i + 1]) {
+                    swap(array, i, i + 1);
+                }
+            }
+        }
     }
 }
