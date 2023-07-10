@@ -1,31 +1,18 @@
 package com.hillel.lecture08;
 
 public class Device {
+    private String name;
     String imei = "1111";
-    String color;
+    protected String color;
 
-    public static void main(String[] args) {
-        String test = "test";
-        System.out.println(test);
-        Device device = new Device("qwerty", "white");
-        device.printInfo();
-//        device.printInfo();
 
-        Device anotherDevice = new Device("222222");
-        anotherDevice.printInfo();
-    }
-
-    public Device() {
-        System.out.println("Constructor with NO parameters");
-    }
-
-    public Device(String imei) {
-        this();
+    public Device(String name, String imei) {
         System.out.println("Constructor with String parameter");
         this.imei = imei;
+        this.name = name;
     }
 
-    public Device(String imei, String color) {
+    public Device(String name, String imei, String color) {
         this.imei = imei;
         this.color = color;
     }
@@ -47,5 +34,13 @@ public class Device {
 
     public void printInfo(int suffix, String prefix) {
         System.out.println(prefix + ": Extended information " + suffix);
+    }
+}
+
+class Phone extends Device {
+    public Phone() {
+        super("defaultPhoneName", "default phone imei");
+//        this.name = "prettyName"; // private access modifier
+        color = "gold";
     }
 }
