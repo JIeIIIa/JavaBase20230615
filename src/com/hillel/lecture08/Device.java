@@ -7,16 +7,29 @@ public class Device {
         Device device = new Device();
         device.printInfo();
         device.imei = "qwerty";
-        System.out.println("Imei = " + device.imei);
+        device.printInfo();
 
         Device anotherDevice = new Device();
         anotherDevice.imei = "2222222";
-        System.out.println();
-        System.out.println("Another device imei = " + anotherDevice.imei);
-        System.out.println("Imei = " + device.imei);
+        anotherDevice.printInfo();
+        device.printInfo();
     }
 
     public void printInfo() {
         System.out.println("General info: imei " + imei);
+    }
+
+    public void printInfo(String prefix) {
+        printInfo(prefix, 0);
+//        System.out.println(prefix + ": Extended information");
+    }
+
+    public void printInfo(String prefix, int suffix) {
+        System.out.println(prefix + ": Extended information " + suffix);
+    }
+
+
+    public void printInfo(int suffix, String prefix) {
+        System.out.println(prefix + ": Extended information " + suffix);
     }
 }
