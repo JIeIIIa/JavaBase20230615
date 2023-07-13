@@ -10,4 +10,8 @@ public class Router extends Device {
 //        this.imei = "qwerty"; // package-private
 
     }
+
+    public void pluginInternet() {
+        System.out.println("Connected...");
+    }
 }
