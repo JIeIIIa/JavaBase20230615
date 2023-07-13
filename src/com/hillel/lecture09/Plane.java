@@ -1,13 +1,16 @@
 package com.hillel.lecture09;
 
 public class Plane {
+    private static int count = 0;
+    private static final int MIN_SPEED = 0;
+    private static final int MAX_SPEED = 1000;
+
     private String model;
     private int speed;
     private final int year;
     private int year1; // modificationYear
     private int altitude;
 
-    private static int count = 0;
 
     public Plane(String model, int year) {
         Plane.count++;
@@ -17,7 +20,7 @@ public class Plane {
 
 
     public void setSpeed(int speed) {
-        if (speed < 0 || speed > 1000) {
+        if (speed < MIN_SPEED || speed > MAX_SPEED) {
             System.out.println("Wrong speed!!!");
             return;
         }
