@@ -1,15 +1,15 @@
 package com.hillel.lecture09;
 
 public class Plane {
+    public static final int MIN_SPEED = 0;
+    public static final int MAX_SPEED = 1000;
     private static int count = 0;
-    private static final int MIN_SPEED = 0;
-    private static final int MAX_SPEED = 1000;
 
     private String model;
     private int speed;
     private final int year;
     private int year1; // modificationYear
-    private int altitude;
+    int altitude = 300;
 
 
     public Plane(String model, int year) {
@@ -53,6 +53,10 @@ public class Plane {
 
     public static int getCount() {
         return count;
+    }
+
+    public static int getMaxSpeed() {
+        return MAX_SPEED;
     }
 
     public void statistics() {
