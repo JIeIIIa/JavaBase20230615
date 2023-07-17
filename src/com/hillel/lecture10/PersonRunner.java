@@ -13,5 +13,19 @@ public class PersonRunner {
             object.run();
         }
 
+        System.out.println(student.transposeMatrix());
+
+        AdvanceSolvable advanceSolvable = student;
+        System.out.println(advanceSolvable.solveIntegral("simple integral"));
+        System.out.println(advanceSolvable.solveSimpleExpression("1 + 1"));
+
+
+        Person anotherPerson = (Person) advanceSolvable;
+        Student anotherStudent = (Student) advanceSolvable;
+        AbstractPerson abstractPerson = (AbstractPerson) advanceSolvable;
+
+        Solvable solvable = person;
+        student = (Student) person; // ClassCastException occurs, because we try to cast Person to Student
+
     }
 }

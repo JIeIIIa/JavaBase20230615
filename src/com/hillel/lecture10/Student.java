@@ -1,6 +1,6 @@
 package com.hillel.lecture10;
 
-public class Student extends Person {
+public class Student extends Person implements AdvanceSolvable {
     public static final String PREFIX = "I'm a student.";
 //    private String name;
 
@@ -14,7 +14,12 @@ public class Student extends Person {
     }
 
     @Override
-    public String solveExpression(String expression) {
+    public String solveSimpleExpression(String expression) {
         return "Answer is " + expression;
+    }
+
+    @Override
+    public String solveIntegral(String expression) {
+        return "Solving integral:" + expression;
     }
 }

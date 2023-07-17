@@ -1,6 +1,6 @@
 package com.hillel.lecture10;
 
-public class Person implements Runnable {
+public class Person extends AbstractPerson implements Runnable, Eatable, Solvable {
     public static final String PREFIX = "I'm a person.";
 
     protected String name;
@@ -21,12 +21,18 @@ public class Person implements Runnable {
         return PREFIX + " My name is " + name;
     }
 
-    public String solveExpression(String expression) {
+    public String solveSimpleExpression(String expression) {
         return null;
     }
 
     @Override
     public void run() {
         System.out.println("Person: Running...");
+    }
+
+
+    @Override
+    public void eat() {
+        System.out.println("Person: eating...");
     }
 }
