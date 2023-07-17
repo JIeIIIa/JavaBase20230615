@@ -11,6 +11,10 @@ public class PersonRunner {
 
     private static void demo3() throws CloneNotSupportedException {
         Person person = new Person("Jack");
+
+        Address address = new Address("awesome avenue");
+        person.setAddress(address);
+
         Person anotherPerson = new Person(person);
         Person clonedPerson = person.clone();
 
@@ -19,6 +23,9 @@ public class PersonRunner {
 
         System.out.println(person.equals(clonedPerson));
         System.out.println(person == clonedPerson);
+
+        clonedPerson.getAddress().setStreet("Fake street");
+        System.out.println(person.getAddress().getStreet());
     }
 
     private static void demo2() {

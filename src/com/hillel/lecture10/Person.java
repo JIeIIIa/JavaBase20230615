@@ -11,6 +11,7 @@ public class Person extends AbstractPerson implements Runnable, Eatable, Solvabl
 
     public Person(Person person) {
         this.name = person.name;
+        address = person.address == null ? null : new Address(person.address.getStreet());
     }
 
     public Person(String name) {
@@ -77,6 +78,9 @@ public class Person extends AbstractPerson implements Runnable, Eatable, Solvabl
 
     @Override
     protected Person clone() throws CloneNotSupportedException {
-        return (Person) super.clone();
+        Person cloned = (Person) super.clone();
+        cloned.address = new Address(this.address.getStreet());
+
+        return cloned;
     }
 }
