@@ -1,7 +1,9 @@
 package com.hillel.lecture10;
 
-public abstract class Person {
-    private String name;
+public class Person {
+    public static final String PREFIX = "I'm a person.";
+
+    protected String name;
 
     public Person(String name) {
         this.name = name;
@@ -16,8 +18,10 @@ public abstract class Person {
     }
 
     public String info() {
-        return "i'm a person. My name is " + name;
+        return PREFIX + " My name is " + name;
     }
 
-    public abstract String solveExpression(String expression);
+    public String solveExpression(String expression) {
+        return null;
+    }
 }
