@@ -16,6 +16,10 @@ public class PersonRunner {
 
         System.out.println(person == copiedPerson);
         System.out.println(person.equals(anotherPerson));
+
+        System.out.println(person);
+        String line = "line: " + person;
+        System.out.println(line);
     }
 
 

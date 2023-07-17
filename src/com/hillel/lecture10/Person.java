@@ -20,7 +20,8 @@ public class Person extends AbstractPerson implements Runnable, Eatable, Solvabl
         this.name = name;
     }
 
-    public String info() {
+    @Override
+    public String toString() {
         return PREFIX + " My name is " + name;
     }
 
