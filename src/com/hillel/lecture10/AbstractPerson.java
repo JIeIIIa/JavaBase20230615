@@ -1,4 +1,4 @@
 package com.hillel.lecture10;
 
-public abstract class AbstractPerson {
+public abstract class AbstractPerson extends Object {
 }
