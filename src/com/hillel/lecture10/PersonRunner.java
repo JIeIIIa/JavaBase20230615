@@ -1,12 +1,24 @@
 package com.hillel.lecture10;
 
 public class PersonRunner {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
 //        demo1();
 //        demo2();
         demo3();
 
 
+    }
+
+    private static void demo3() throws CloneNotSupportedException {
+        Person person = new Person("Jack");
+        Person anotherPerson = new Person(person);
+        Person clonedPerson = person.clone();
+
+        System.out.println(person.equals(anotherPerson));
+        System.out.println(person == anotherPerson);
+
+        System.out.println(person.equals(clonedPerson));
+        System.out.println(person == clonedPerson);
     }
 
     private static void demo2() {
