@@ -1,6 +1,6 @@
 package com.hillel.lecture10;
 
-public class Person {
+public class Person implements Runnable {
     public static final String PREFIX = "I'm a person.";
 
     protected String name;
@@ -23,5 +23,10 @@ public class Person {
 
     public String solveExpression(String expression) {
         return null;
+    }
+
+    @Override
+    public void run() {
+        System.out.println("Person: Running...");
     }
 }
