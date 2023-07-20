@@ -20,6 +20,10 @@ public class Calculator {
     }
 
     public void divide(int value) {
-        result += value;
+        if (value == 0) {
+            System.out.println("Error!");
+            return;
+        }
+        result /= value;
     }
 }

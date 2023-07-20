@@ -1,31 +1,46 @@
 package com.hillel.lecture11;
 
-public class CalculatorTest {
-    public static void main(String[] args) {
-        CalculatorTest instance = new CalculatorTest();
-        System.out.println("add: " + instance.add());
-        System.out.println("divide: " + instance.divide());
-    }
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-    public boolean add() {
+public class CalculatorTest {
+
+    @Test
+    public void add() {
         // given
         Calculator calculator = new Calculator();
 
         // when
         calculator.add(10);
+        int result = calculator.getResult();
 
         // then
-        return calculator.getResult() == 10;
+        Assertions.assertEquals(10, result);
     }
 
-    public boolean divide() {
+    @Test
+    public void divide() {
         // given
         Calculator calculator = new Calculator(10);
 
         // when
         calculator.divide(3);
+        int result = calculator.getResult();
 
         //then
-        return calculator.getResult() == 3;
+        Assertions.assertEquals(3, result);
+    }
+
+    @Test
+    void divideByZero() {
+        // given
+        Calculator calculator = new Calculator(10);
+
+        // when
+        calculator.divide(0);
+        int result = calculator.getResult();
+
+        //then
+        Assertions.assertEquals(10, result);
     }
 }
