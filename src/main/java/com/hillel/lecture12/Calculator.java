@@ -30,6 +30,10 @@ public class Calculator {
     // n! == 1*2*...*(n-1)*n
     // 0! == 1
     public void factorial(int n) {
+        if (n < 0) {
+            this.result = 0;
+            return;
+        }
         long result = 1;
         for (int i = 1; i <= n; i++) {
             result *= i;

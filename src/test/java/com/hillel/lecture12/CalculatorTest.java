@@ -57,4 +57,34 @@ class CalculatorTest {
         // then
         Assertions.assertEquals(expected, result);
     }
+
+    @Test
+    void factorialWhenZero() {
+        // given
+        int n = 0;
+        long expected = 1L;
+        Calculator calculator = new Calculator();
+
+        // when
+        calculator.factorial(n);
+        long result = calculator.getResult();
+
+        // then
+        Assertions.assertEquals(expected, result);
+    }
+
+    @Test
+    void factorialWhenNegative() {
+        // given
+        int n = -13;
+        long expected = 0L;
+        Calculator calculator = new Calculator();
+
+        // when
+        calculator.factorial(n);
+        long result = calculator.getResult();
+
+        // then
+        Assertions.assertEquals(expected, result);
+    }
 }
