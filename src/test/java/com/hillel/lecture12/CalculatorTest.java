@@ -1,13 +1,35 @@
 package com.hillel.lecture12;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 class CalculatorTest {
+    private Calculator calculator;
+
+    @BeforeAll
+    static void beforeAll() {
+        System.out.println("Execute once before all tests");
+    }
+
+    @AfterAll
+    static void afterAll() {
+        System.out.println("Execute once after all tests");
+    }
+
+    @BeforeEach
+    void setUp() {
+        System.out.println("Hello from BeforeEach");
+        this.calculator = new Calculator();
+    }
+
+    @AfterEach
+    void tearDown() {
+        System.out.println("Good bye [AfterEach]");
+    }
+
     @Test
+    @Disabled
     public void add() {
         // given
-        Calculator calculator = new Calculator();
 
         // when
         calculator.add(10);
@@ -19,6 +41,7 @@ class CalculatorTest {
 
     @Test
     public void divide() {
+        System.out.println("Hello from TEST");
         // given
         Calculator calculator = new Calculator(10);
 
@@ -48,7 +71,6 @@ class CalculatorTest {
         // given
         int n = 13;
         long expected = 6_227_020_800L;
-        Calculator calculator = new Calculator();
 
         // when
         calculator.factorial(n);
@@ -63,7 +85,6 @@ class CalculatorTest {
         // given
         int n = 0;
         long expected = 1L;
-        Calculator calculator = new Calculator();
 
         // when
         calculator.factorial(n);
@@ -78,7 +99,6 @@ class CalculatorTest {
         // given
         int n = -13;
         long expected = 0L;
-        Calculator calculator = new Calculator();
 
         // when
         calculator.factorial(n);
