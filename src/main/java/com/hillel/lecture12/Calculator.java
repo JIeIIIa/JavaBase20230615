@@ -29,16 +29,22 @@ public class Calculator {
 
     // n! == 1*2*...*(n-1)*n
     // 0! == 1
-    public void factorial(int n) {
+
+    // n! = n*(n-1)!
+    public long factorial(int n) {
+        long result;
         if (n < 0) {
             this.result = 0;
-            return;
+            return 0;
         }
-        long result = 1;
-        for (int i = 1; i <= n; i++) {
-            result *= i;
+        if (n > 0) {
+            result = n * factorial(n - 1);
+        } else {
+            this.result = 1;
+            return 1;
         }
 
         this.result = result;
+        return this.result;
     }
 }
