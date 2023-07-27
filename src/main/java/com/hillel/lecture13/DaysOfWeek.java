@@ -10,40 +10,31 @@ public class DaysOfWeek {
     }
 
     public String giveRecommendation(Day day) {
+        String message = "";
         if (day == Day.WEDNESDAY) {
-            System.out.println("Listen music");
+            message += "Listen music\n";
         }
         if (day.isWorkingDay()) {
-            return String.format("Today is %s. Don't forget to see a meeting list", day.getName());
+            message += String.format("Today is %s. Don't forget to see a meeting list", day.getName());
         } else {
-            return String.format("Today is weekend [%s]. Go to park", day.getName());
+            message += String.format("Today is weekend [%s]. Go to park", day.getName());
         }
 
+        return message;
     }
 }
 
-class Day {
-    public static final Day MONDAY = new Day(1, "Monday");
-    public static final Day WEDNESDAY = new Day(1, "Wednesday");
-    public static final Day SUNDAY = new Day(7, "Sunday");
+enum Day {
+    MONDAY("Monday", true),
+    WEDNESDAY("Wednesday", true),
+    SUNDAY("Sunday", false);
 
-    private int numberOfDay;
     private String name;
+    private boolean workingDay;
 
-    private Day(int numberOfDay) {
-        if (numberOfDay < 1 || numberOfDay > 7) {
-            throw new RuntimeException("ERROR! Unknown day");
-        }
-        this.numberOfDay = numberOfDay;
-    }
-
-    private Day(int numberOfDay, String name) {
-        this(numberOfDay);
+    Day(String name, boolean workingDay) {
         this.name = name;
-    }
-
-    public int getNumberOfDay() {
-        return numberOfDay;
+        this.workingDay = workingDay;
     }
 
     public String getName() {
@@ -51,6 +42,6 @@ class Day {
     }
 
     public boolean isWorkingDay() {
-        return 1 <= numberOfDay && numberOfDay < 6;
+        return workingDay;
     }
 }
