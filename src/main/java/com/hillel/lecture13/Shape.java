@@ -32,9 +32,17 @@ public abstract class Shape {
 class Triangle extends Shape {
     private static int value;
     private Edge[] edges;
+    private int length;
 
-    public Triangle(String color, String name, Edge[] edges) {
+    public Triangle(String color, String name) {
         super(color, name);
+    }
+
+    public Edge[] getEdges() {
+        return edges;
+    }
+
+    public void setEdges(Edge[] edges) {
         this.edges = edges;
     }
 
@@ -42,17 +50,21 @@ class Triangle extends Shape {
     public String toString() {
         return "Triangle{" +
                 "name=" + getName() +
-                "color=" + getColor() +
-                "edges=" + Arrays.toString(edges) +
+                ", color=" + getColor() +
+                ", edges=" + Arrays.toString(edges) +
+                ", totalLength=" + length +
                 '}';
     }
 
-    public static class Edge {
+    public class Edge {
         private String name;
+        private int length;
 
-        public Edge(String name) {
+        public Edge(String name, int length) {
             value = 42;
             this.name = name;
+            this.length = length;
+            Triangle.this.length += length;
         }
 
         @Override
