@@ -1,8 +1,5 @@
-
-
 import java.util.Random;
 import java.util.Scanner;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class CarAnalyzer {
     static Scanner scanner = new Scanner(System.in);
