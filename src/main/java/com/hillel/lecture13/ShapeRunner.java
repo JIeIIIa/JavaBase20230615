@@ -11,5 +11,32 @@ public class ShapeRunner {
 
         triangle.setEdges(edges);
         System.out.println(triangle);
+
+        class Circle extends Shape {
+            public Circle(String color, String name) {
+                super(color, name);
+            }
+
+            @Override
+            public String toString() {
+                return "Circle{" +
+                        "color='" + getColor() + '\'' +
+                        ", name='" + getName() + '\'' +
+                        '}';
+            }
+        }
+
+        Circle circle = new Circle("green", "circle");
+        System.out.println(circle);
+
+
+        class Human implements Runnable {
+            @Override
+            public void run() {
+                System.out.println("Run, Forest, run!!!");
+            }
+        }
+        Human human = new Human();
+        human.run();
     }
 }
