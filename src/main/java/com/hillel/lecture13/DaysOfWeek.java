@@ -19,6 +19,8 @@ public class DaysOfWeek {
 
         Day day = daysOfWeek.defineDayDefaultImpl();
         String message = daysOfWeek.giveRecommendation(day);
+        System.out.println(message);
+        message = daysOfWeek.giveRecommendation((String) null);
 
         System.out.println(message);
         day.run();
@@ -38,6 +40,10 @@ public class DaysOfWeek {
     public Day defineDayDefaultImpl() {
         String value = scanner.nextLine();
         return Day.valueOf(value.toUpperCase());
+    }
+
+    public String giveRecommendation(String day) {
+        return "TODO: add implementation! day is " + null;
     }
 
     public String giveRecommendation(Day day) {
