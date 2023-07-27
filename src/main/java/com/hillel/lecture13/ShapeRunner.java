@@ -30,13 +30,16 @@ public class ShapeRunner {
         System.out.println(circle);
 
 
-        class Human implements Runnable {
+        int speed = 10;
+        Runnable human = new Runnable() {
             @Override
             public void run() {
                 System.out.println("Run, Forest, run!!!");
+                System.out.println("Use minimal speed: " + speed);
             }
-        }
-        Human human = new Human();
+        };
+
+//        speed = 42;
         human.run();
     }
 }
